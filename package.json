@@ -1,0 +1,16 @@
+{
+    "name": "sw-lab-hw6b",
+    "version": "1.0.0",
+    "description": "Root package for Heroku build process",
+    "private": true,
+    "engines": {
+        "node": "18.x"
+    },
+    "scripts": {
+    "build": "npm run build --prefix frontend",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+    },
+    "cacheDirectories": [
+    "frontend/node_modules"
+    ]
+}

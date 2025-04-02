@@ -1,0 +1,1 @@
+web: gunicorn backend.hw6:app

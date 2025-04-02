@@ -1,14 +1,21 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import os
 # from flask_cors import CORS
 
 # app = Flask(__name__)
-app = Flask(__name__, static_folder='./build', static_url_path='/')
+app = Flask(__name__, static_folder='../frontend/build/static', static_url_path='/')
 # CORS(app) # for locally running this
 
-@app.route('/')
-def index():
-    return app.send_static_file('index.html')
+@app.route("/")
+def serve():
+    return send_from_directory(app.static_folder, "index.html")
+
+@app.route("/<path:path>")
+def serve_static_files(path):
+    return send_from_directory(app.static_folder, path)
+# @app.route('/')
+# def index():
+    # return app.send_static_file('index.html')
 
 @app.route('/checkin/<int:projectId>/<int:qty>', methods=['GET'])
 def checkIn_hardware(projectId, qty):

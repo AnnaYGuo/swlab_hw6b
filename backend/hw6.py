@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 import os
-from flask_cors import CORS
+# from flask_cors import CORS
 
 # app = Flask(__name__)
 app = Flask(__name__, static_folder='./build', static_url_path='/')
-CORS(app) # for locally running this
+# CORS(app) # for locally running this
 
 @app.route('/')
 def index():

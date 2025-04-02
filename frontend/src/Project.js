@@ -11,13 +11,16 @@ const Project = ({ id, name, initiallyJoined, onRemove, hardwareSets, projectHar
   
     // Send request to backend
     if (!joined){ 
-      fetch(`http://127.0.0.1:5000/joinproject/${id}`)
+      // fetch(`${process.env.REACT_APP_API_URL}:5000/joinproject/${id}`)
+      // fetch(`http://127.0.0.1:5000/joinproject/${id}`)
+      fetch(`http://localhost:5000/joinproject/${id}`)
       .then(response => response.json())
       .then(data => alert(data.message))
       .catch(error => console.error('Error:', error));
     }
     else{
-      fetch(`http://127.0.0.1:5000/leaveproject/${id}`)
+      fetch(`http://localhost:5000/leaveproject/${id}`)
+      // fetch(`http://127.0.0.1:5000/leaveproject/${id}`)
       .then(response => response.json())
       .then(data => alert(data.message))
       .catch(error => console.error('Error:', error));

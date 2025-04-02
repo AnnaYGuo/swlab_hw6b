@@ -16,7 +16,7 @@ const HardwareSet = ({ name, projectId, projectCheckedOut, globalHardware, updat
       updateProjectHardware(projectId, name, amount);
       setQuantity(""); // Reset input
       
-      fetch(`http://localhost:5000/checkout/${projectId}/${amount}`)
+      fetch(`http://sw-lab-hw6-app-7ae071661b0c.herokuapp.com:5000/checkout/${projectId}/${amount}`)
       // fetch(`http://127.0.0.1:5000/checkout/${projectId}/${amount}`)
       .then(response => response.json())
       .then(data => alert(data.message))
@@ -32,7 +32,7 @@ const HardwareSet = ({ name, projectId, projectCheckedOut, globalHardware, updat
       updateProjectHardware(projectId, name, -amount);
       setQuantity(""); // Reset input
       
-      fetch(`http://localhost:5000/checkin/${projectId}/${amount}`)
+      fetch(`http://sw-lab-hw6-app-7ae071661b0c.herokuapp.com:5000/checkin/${projectId}/${amount}`)
       // fetch(`http://127.0.0.1:5000/checkin/${projectId}/${amount}`)
       .then(response => response.json())  // Convert response to JSON
       .then(data => alert(data.message))  // Display the message

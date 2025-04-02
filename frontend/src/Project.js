@@ -13,13 +13,13 @@ const Project = ({ id, name, initiallyJoined, onRemove, hardwareSets, projectHar
     if (!joined){ 
       // fetch(`${process.env.REACT_APP_API_URL}:5000/joinproject/${id}`)
       // fetch(`http://127.0.0.1:5000/joinproject/${id}`)
-      fetch(`http://localhost:5000/joinproject/${id}`)
+      fetch(`http://sw-lab-hw6-app-7ae071661b0c.herokuapp.com:5000/joinproject/${id}`)
       .then(response => response.json())
       .then(data => alert(data.message))
       .catch(error => console.error('Error:', error));
     }
     else{
-      fetch(`http://localhost:5000/leaveproject/${id}`)
+      fetch(`http://sw-lab-hw6-app-7ae071661b0c.herokuapp.com:5000/leaveproject/${id}`)
       // fetch(`http://127.0.0.1:5000/leaveproject/${id}`)
       .then(response => response.json())
       .then(data => alert(data.message))
